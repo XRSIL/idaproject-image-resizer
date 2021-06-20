@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Page</title>
+</head>
+<body>
+    <div style="text-align: left; padding: 50px;">
+        <p style="font-size: 30px;">Список изображений</p>
+
+        {% for image in images %}
+            <p style="font-size: 20px;"><a href="choose/resize?image_name={{ image.name }}">{{ image.name }}</a></p>
+        {% endfor %}
+
+        {% if not images %}
+            <p style="font-size: 20px;">Нет доступных изображений</p>
+        {% endif %}
+
+        <a href="{% url 'upload-view' %}">Добавить изображение</a>
+
+    </div>
+</body>
+</html>
